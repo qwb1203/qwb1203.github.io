@@ -154,6 +154,283 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java8特性之Stream流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/23/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/">Java8特性之Stream流</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/23/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/" class="archive-article-date">
+  	<time datetime="2020-03-23T13:09:46.185Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Java8特性之Stream流<br>date: 2020-03-23 21:09:46<br>tags:</p>
+<hr>
+<h2 id="流是什么"><a href="#流是什么" class="headerlink" title="流是什么"></a>流是什么</h2><p>Stream流是Java8的新成员，可以把它们看成遍历数据集的高级迭代器，它允许你以声明性方式处理数据集合(通过查询语句来表达，而不是临时编写一个实现)。此外，流还可以透明地并行处理(多线程)，只能使用一次，采用内部迭代方式访问数据集。<br>Java8之前，当我们要对一个集合容器里的元素作比较，然后返回一个排序后的结果集。我们是这样实现的：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324011127889.png" alt=""><br>在这段代码中多了一个作为一次性中间容器的“垃圾变量”lowCaloricDishes，用Stream流可以解决这个问题：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324011341259.png" alt="">  </p>
+<blockquote>
+<p>多线程执行只需把stream()换成parallelStream()</p>
+</blockquote>
+<p>总而言之，Java8的Stream API有以下优点：  </p>
+<ul>
+<li>声明性——更简洁，更易读</li>
+<li>可复合——更灵活</li>
+<li>可并行——性能更好</li>
+</ul>
+<h2 id="流操作"><a href="#流操作" class="headerlink" title="流操作"></a>流操作</h2><p><code>java.util.stream.Stream</code>中的Stream接口定义了许多操作，它们可以分为两大类：可以连接起来的流操作称为中间操作；关闭流的操作称为终端操作。<br><strong>中间操作</strong>：中间操作会返回另一个流，这让多个操作可以连接起来形成一个查询。中间操作不会执行任何处理，只有流水线上触发一个终端操作才一次性全部处理。<br><strong>终端操作</strong>：终端操作会从流的流水线生成结果，其结果是任何不是流的值。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324015353831.png" alt="">  </p>
+<h2 id="构建流"><a href="#构建流" class="headerlink" title="构建流"></a>构建流</h2><h3 id="由值创建流"><a href="#由值创建流" class="headerlink" title="由值创建流"></a>由值创建流</h3><p>可以使用静态方法Stream.of来通过显式值创建一个流，它可以接受任意数量的参数；也可以使用empty方法得到一个空流：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream = Stream.of(<span class="string">"Java 8"</span>,<span class="string">"Lambdas"</span>,<span class="string">"In"</span>,<span class="string">"Action"</span>);</span><br><span class="line">Stream&lt;String&gt; emptyStream = Stream.empty();</span><br></pre></td></tr></table></figure>
+<h3 id="由数组创建流"><a href="#由数组创建流" class="headerlink" title="由数组创建流"></a>由数组创建流</h3><p>可以使用Arrays.stream方法从数组创建一个流，它接受一个数组作为参数：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] numbers = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> sum = Arrays.stream(numbers).sum();</span><br></pre></td></tr></table></figure>
+<h3 id="由文件生成流"><a href="#由文件生成流" class="headerlink" title="由文件生成流"></a>由文件生成流</h3><p><code>java.nio.file.Files</code>中的很多静态方法都会返回一个流。例如：Files.lines方法会返回一个由指定文件中的各行构成的字符串流：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326064247202.png" alt=""><br>上述代码用Files.lines得到一个流，再对流中的每一个元素(指定文件中的每一行)用split将其扁平流化拆分为单词，最后调用distinct和count方法算出流中有多少各不相同的单词。  </p>
+<h3 id="由函数生成流：创建无限流"><a href="#由函数生成流：创建无限流" class="headerlink" title="由函数生成流：创建无限流"></a>由函数生成流：创建无限流</h3><p>Stream API提供了两个静态方法来生成无限流：Stream.iterate和Stream.generate。由这两个方法产生的流会用给定的函数按需创建，一般可以用limit(n)来对这种流加以限制，以避免无穷计算值。<br><strong>迭代</strong>：iterate方法接受一个初值值还有一个依次应用在每个产生的新值上的Lambda(UnaryOperator&lt; T &gt;)类型。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326074744409.png" alt=""><br><strong>生成斐波那契数列的前20个元组：</strong><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326075009470.png" alt=""><br><strong>生成</strong>：generate方法接受一个Supplier&lt; T &gt;类型的Lambda提供新的值来生成一个无限流：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326075129429.png" alt="">  </p>
+<h2 id="流的使用"><a href="#流的使用" class="headerlink" title="流的使用"></a>流的使用</h2><p>流的使用一般包括三件事：  </p>
+<ul>
+<li>一个数据源(如集合)来执行一个查询；</li>
+<li>一个中间操作链，形成一条流的流水线；</li>
+<li>一个终端操作，执行流水线，并能生成结果；</li>
+</ul>
+<h3 id="筛选和切片"><a href="#筛选和切片" class="headerlink" title="筛选和切片"></a>筛选和切片</h3><p>选择流中的元素，可以用谓词筛选，筛选出各不相同的元素，忽略流中的头几个元素，或将流截短至指定长度。</p>
+<h4 id="用谓词筛选"><a href="#用谓词筛选" class="headerlink" title="用谓词筛选"></a>用谓词筛选</h4><p>Stream接口支持filter方法，该操作会接受一个谓词(一个返回boolean的函数)作为参数，并返回一个包括所有符合元素的流。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020343049.png" alt="">  </p>
+<h4 id="筛选各异的元素"><a href="#筛选各异的元素" class="headerlink" title="筛选各异的元素"></a>筛选各异的元素</h4><p>流还支持一个distinct方法，它会返回一个元素各异(根据流所生成元素的hashCode和equals方法实现)的流。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020537333.png" alt="">  </p>
+<h4 id="截短流"><a href="#截短流" class="headerlink" title="截短流"></a>截短流</h4><p>流支持limit(n)方法，该方法会返回一个不超过给定长度的流。如果流是有序的，则最多返回前n个元素。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020717951.png" alt="">  </p>
+<h4 id="跳过元素"><a href="#跳过元素" class="headerlink" title="跳过元素"></a>跳过元素</h4><p>流还支持skip(n)方法，返回一个扔掉了前n个元素的流。如果流中元素不足n个，则返回一个空流。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020856741.png" alt="">  </p>
+<h3 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h3><p>Stream流API通过map和flatmap提供了从某些对象中选择信息的工具。  </p>
+<h4 id="对流中每一个元素应用函数"><a href="#对流中每一个元素应用函数" class="headerlink" title="对流中每一个元素应用函数"></a>对流中每一个元素应用函数</h4><p>流支持map方法，它会接受一个函数作为参数。这个函数会被应用到每个元素上，并将其映射成一个新的元素。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324023305117.png" alt="">  </p>
+<h4 id="流的扁平化"><a href="#流的扁平化" class="headerlink" title="流的扁平化"></a>流的扁平化</h4><p>对于一张单词表，返回一张列表并列出里面不相同的字符。例如，给定单词列表[“Hello”,”World”]，你想要返回列表 [“H”,”e”,”l”, “o”,”W”,”r”,”d”] 。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324054903430.png" alt=""><br>但是，map方法为每个单词返回的是一个String类型的数组，我们想要的是Stream&lt; String &gt;。这时可以用flatMap将使用map方法时生成的单个流都合并起来，即扁平化为一个流。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055153790.png" alt="">  </p>
+<blockquote>
+<p>flatMap方法让你把一个流中的每个值都换成另一个流，然后把所有的流连接起来成为一个流。</p>
+</blockquote>
+<h3 id="查找和匹配"><a href="#查找和匹配" class="headerlink" title="查找和匹配"></a>查找和匹配</h3><h4 id="检查谓词是否至少匹配一个元素"><a href="#检查谓词是否至少匹配一个元素" class="headerlink" title="检查谓词是否至少匹配一个元素"></a>检查谓词是否至少匹配一个元素</h4><p>anyMatch方法可以判断流中是否有一个元素能匹配给定的谓词，它返回一个boolean，因此是一个终端操作。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055516889.png" alt="">  </p>
+<h4 id="检查谓词是否匹配所有元素"><a href="#检查谓词是否匹配所有元素" class="headerlink" title="检查谓词是否匹配所有元素"></a>检查谓词是否匹配所有元素</h4><p>allMatch和anyMatch类似，但它会查看流中的元素是否都能匹配；和allMatch相对的是noneMatch，可以确保流中没有任何元素匹配。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055717396.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055727633.png" alt="">  </p>
+<h4 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h4><p>findAny方法将返回当前流中的任意元素，它可以与其他流操作结合使用。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055856524.png" alt="">  </p>
+<h4 id="查找第一个元素"><a href="#查找第一个元素" class="headerlink" title="查找第一个元素"></a>查找第一个元素</h4><p>findFirst方法的工作方式类似于findAny，能找到顺序流的第一个元素。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060100920.png" alt="">  </p>
+<h3 id="归约"><a href="#归约" class="headerlink" title="归约"></a>归约</h3><h4 id="元素求和"><a href="#元素求和" class="headerlink" title="元素求和"></a>元素求和</h4><p>reduce接受两个参数，一个是初始值；一个BinaryOperator&lt; T &gt;对象来将两个元素结合起来产生一个新值。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060511637.png" alt="">  </p>
+<h4 id="最大值和最小值"><a href="#最大值和最小值" class="headerlink" title="最大值和最小值"></a>最大值和最小值</h4><p><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060708800.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060721783.png" alt="">  </p>
+<h2 id="数值流"><a href="#数值流" class="headerlink" title="数值流"></a>数值流</h2><p>我们在前面看到可以使用reduce方法计算流中元素的总和。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324083112765.png" alt=""><br>这段代码有一个暗含的装箱成本，每个Integer都必须拆箱成一个原始类型，在进行求和。为此，Stream API提供了原始类型流特化来处理数值流。  </p>
+<h3 id="原始类型流特化"><a href="#原始类型流特化" class="headerlink" title="原始类型流特化"></a>原始类型流特化</h3><p>Java8引入了三个原始类型特化流接口：IntStream、DoubleStream和LongStream，分别将流中的元素特化为int、double和long，从而避免了暗含的装箱成本。  </p>
+<ul>
+<li><strong>映射到数值流</strong></li>
+</ul>
+<p>将流转换为特化版本的常用方法是mapToInt、mapToDouble和mapToLong。这些方法和map的工作方式一样，不同的是返回的是一个特化流而不是Stream&lt; T &gt;。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324084101170.png" alt="">  </p>
+<ul>
+<li><strong>转换回对象流</strong></li>
+</ul>
+<p>IntStream的map操作必须接受int并返回int，这样的原始流要转换回非特化流可以使用boxed方法。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324084537749.png" alt="">  </p>
+<ul>
+<li><strong>默认值OptionalInt</strong></li>
+</ul>
+<p>Optional类是一个可以表示值存在或不存在的容器，可以用Integer、String等参考类型来参数化。对于三种原始流特化，也分别有一个Optional原始类型特化版本：OptionalInt、OptionalDouble和OptionalLong。<br>例如，要找到IntStream中的最大元素，可以调用max方法返回一个OptionalInt：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324085023661.png" alt=""><br>若没有最大值，就可以显式处理OptionalInt去定义一个默认值：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324085109703.png" alt="">  </p>
+<h3 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h3><p>Java8引入了人两个可用于IntStream和LongStream的静态方法，可以指定生成原始流的范围：range和rangeClosed。range不包含结束值，而rangeClosed则包含结束值。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324085603018.png" alt="">  </p>
+<h2 id="用流收集数据"><a href="#用流收集数据" class="headerlink" title="用流收集数据"></a>用流收集数据</h2><p>前面我们在操作流的时候用到了collect方法来把Stream中所有的元素结合成一个List，collect是一个归约操作。它可以像rduce一样接受各种做法作为参数，将流中的元素累积成一个汇总结果。汇总的方法是把Collector接口的一个实现传递给collect方法的参数。  </p>
+<h3 id="收集器用作高级归约"><a href="#收集器用作高级归约" class="headerlink" title="收集器用作高级归约"></a>收集器用作高级归约</h3><p>对流调用collect方法将对流中的每一个元素触发一个归约操作(由Collector来参数化)，收集器Collector会对元素应用一个转换函数并将结果累积在一个数据结构中，从而产生最终输出。最直接和最常用的收集器是toList静态方法，把流中所有的元素收集到一个List中：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326081239789.png" alt="">  </p>
+<h3 id="预定义收集器"><a href="#预定义收集器" class="headerlink" title="预定义收集器"></a>预定义收集器</h3><p>预定义收集器，就是那些可以从Collectors类提供的工厂方法创建的收集器。它们主要提供了三大功能：  </p>
+<ul>
+<li>将流元素归约和汇总为一个值</li>
+<li>元素分组，对每个子组进行进一步归约操作</li>
+<li>元素分区，使用谓词作为分组参数</li>
+</ul>
+<p><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326081925245.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082027574.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082048056.png" alt="">  </p>
+<h3 id="归约和汇总"><a href="#归约和汇总" class="headerlink" title="归约和汇总"></a>归约和汇总</h3><h4 id="查找流中的最大值和最小值"><a href="#查找流中的最大值和最小值" class="headerlink" title="查找流中的最大值和最小值"></a>查找流中的最大值和最小值</h4><p>Collectors.maxBy和Collectors.minBy这两个收集器可以计算流中的最大或最小值，其接收一个Comparator参数来比较流中的元素。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082619700.png" alt="">  </p>
+<h4 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h4><p>Collectors.summingInt是Collectors类为汇总提供的工厂方法，它可接受一个把对象映射为求和所需int的函数，并返回一个收集器：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082853108.png" alt=""><br>Collectors.summingLong和Collectors.summingDouble方法的作用完全一样，可以用于求和字段为long或double的情况。  </p>
+<h4 id="求平均值"><a href="#求平均值" class="headerlink" title="求平均值"></a>求平均值</h4><p>除了求和，还有求平均值的汇总操作：Collectors.averagingInt，对应的averagingLong和averagingDouble也可以计算平均值：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326083146398.png" alt="">  </p>
+<h4 id="Summarizing操作"><a href="#Summarizing操作" class="headerlink" title="Summarizing操作"></a>Summarizing操作</h4><p>当我们想通过一次操作得到多种结果如求最值、平均值等时，可以用summarizingInt工厂方法返回的收集器：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326083617418.png" alt=""><br>收集器会把所有信息收集到INtSummaryStatistics类中，它提供了一个getter方法来访问结果，打印出来会得到以下输出：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326083751352.png" alt=""><br>同样的，summarizingLong和summarizingDouble工厂方法返回的收集器存在LongSummaryStatistics和DoubleSummaryStatistics类，适用于long或double类型数据。  </p>
+<h4 id="连接字符串"><a href="#连接字符串" class="headerlink" title="连接字符串"></a>连接字符串</h4><p>joining工厂方法返回的收集器会把流中每一个对象应用toString方法，得到的所有字符串连接成一个字符串：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326084155121.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326084450359.png" alt="">  </p>
+<blockquote>
+<p>joining在内部使用了StringBuilder方法来吧生成的字符串逐个追加起来。如果提取的元素相应类中重写了toString方法，无需map提取直接映射就能得到结果。  </p>
+</blockquote>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>Collectors.groupingBy工厂方法返回的收集器能对流中的元素进行分组，分组操作的结果是一个Map。把分组函数返回的值作为映射的键，把流中所有具有这个分类值的项目列表作为对应的键值。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327123450745.png" alt=""><br>但如果要分组的元素类中没有定义方法，也可以自定义Lambda表达式：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327123603811.png" alt="">  </p>
+<blockquote>
+<p>注：该方法为单参数groupingBy(f)(其中f是分类函数)，实际上是groupingBy(f,toList())的简便写法。</p>
+</blockquote>
+<h3 id="多级分组"><a href="#多级分组" class="headerlink" title="多级分组"></a>多级分组</h3><p>Collectors.groupingBy方法有一个双参数版本，除了普通的分类函数之外，还可以接受Collector类型的第二个参数。把一个内层groupingBy传递给外层groupingBy，即可进行二级分组：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327123906316.png" alt="">  </p>
+<h3 id="按子组收集数据"><a href="#按子组收集数据" class="headerlink" title="按子组收集数据"></a>按子组收集数据</h3><p>除了传递一个groupingBy收集器，也可以传递其他收集器给一个groupingBy收集器：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327124356439.png" alt="">  </p>
+<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><p>分区是分组的特殊情况：由一个谓词(返回一个布尔值的函数)作为分类函数，称为分区函数。这意味着得到的分组Map键类型是Boolean，于是最多可以分为两组：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327124915147.png" alt="">  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/23/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java8特性之Lambda表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/21/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Java8特性之Lambda表达式</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/21/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-03-21T11:10:36.885Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Java8特性之Lambda表达式<br>date: 2020-03-21 19:10:36<br>tags:</p>
+<hr>
+<p><strong>Lambda表达式</strong>可以理解为简洁地表示可传递的匿名函数的一种方式：它没有名称，但它有参数列表、函数主体、返回类型，可能还有一个可以抛出的异常列表。Lambda表达式由参数、箭头和主体组成。  </p>
+<ul>
+<li>如果lambda代码块主体无法用一个表达式表示，就要用{}包裹代码并明确使用return语句；</li>
+<li>如果lambda表达式没有参数，可以提供一对空的小括号，如同不带参的方法那样；</li>
+<li>如果一个lambda表达式的参数类型是可以被推导的，那么可以省略它们的类型；  </li>
+</ul>
+<p><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323055120239.png" alt="">  </p>
+<h3 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h3><p><strong>函数式接口的转换是使用lambda表达式能做的唯一一件事</strong>。函数式接口就是只定义一个抽象方法的接口，但是可以有多个非抽象方法，这样的接口可以被隐式转换为lambda表达式。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200322050934965.png" alt=""><br>java1.8使我们能够通过使用<code>default</code>关键字向接口添加非抽象方法实现，此功能也称为虚拟扩展法。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Formula</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Math.sqrt(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现该接口的类只要实现抽象方法就可以直接使用默认方法；也可以直接通过接口创建对象，然后实现接口的默认方法。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 通过匿名内部类方式访问接口</span></span><br><span class="line">    Formula formula = <span class="keyword">new</span> Formula() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> sqrt(a * <span class="number">100</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    System.out.println(formula.calculate(<span class="number">100</span>));     <span class="comment">// 100.0</span></span><br><span class="line">    System.out.println(formula.sqrt(<span class="number">16</span>));           <span class="comment">// 4.0</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：上述通过匿名内部类方式访问接口，我们可以这样理解：一个内部类实现了接口里的抽象方法并且返回一个内部类对象，然后让接口的引用指向这个对象。</p>
+</blockquote>
+<p>java1.8还增加了一种特殊的注解<code>@FuntionalInterface</code>，但是这个注解通常不是必须的。只要接口只包含一个抽象方法，虚拟机会自动判断该接口为函数式接口。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Converter</span>&lt;<span class="title">F</span>, <span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function">T <span class="title">convert</span><span class="params">(F from)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Lambda实践：环绕执行模式"><a href="#Lambda实践：环绕执行模式" class="headerlink" title="Lambda实践：环绕执行模式"></a>Lambda实践：环绕执行模式</h4><p> 下面是一段代码，从一个文件中读取一行所需的文件内容：<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">processFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">    <span class="keyword">try</span>(BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"data.txt"</span>)))&#123;</span><br><span class="line">        <span class="keyword">return</span> br.readLine();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br> <strong>行为参数化</strong><br>这段代码的局限性在于只能读取文件的第一行，当要执行processFile方法对文件执行不同的操作时，就要把processFile的行为参数化：根据传递给它的参数不同，其行为也会不同。Lambda可以传递行为，把行为传递给processFile以便利用BufferedReader执行不同的行为。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String result = processFile( (BufferedReader br) -&gt; br.readLine() + br.readLine() );</span><br></pre></td></tr></table></figure>
+<p><strong>使用函数式接口来传递行为</strong><br>Lambda表达式仅可用于上下文是函数式接口的情况，这时就需要创建一个能匹配<code>BufferedReader -&gt; String</code>，还可以抛出<code>IOException</code>异常的接口。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FuctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BufferedReaderProcessor</span></span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">process</span><span class="params">(BufferedReader b)</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将这个接口作为新的processFile方法的参数：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">processFile</span><span class="params">(BufferedReaderProcessor p)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>执行一个行为</strong><br>在processFile主体内，对得到的BufferedReaderProcessor对象调用process方法执行处理：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">processFile</span><span class="params">(BufferedReaderProcessor p)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">    <span class="keyword">try</span>(BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"data.txt"</span>)))&#123;</span><br><span class="line">        <span class="keyword">return</span> p.process(br);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>传递Lambda</strong><br>现在就可以通过传递不同的Lambda重用processFile方法，并以不同的方式处理文件：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String oneLine = processFile( (BufferedReader br) -&gt; br.readLine() );   <span class="comment">//处理一行</span></span><br><span class="line">String twoLines = processFile( (BufferedReader br) -&gt; br.readLine() + br.readLine() );  <span class="comment">//处理两行</span></span><br></pre></td></tr></table></figure>
+<p>下图总结了所采取的使processFile方法更灵活的四个步骤。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323013134066.png" alt="">  </p>
+<h4 id="使用函数式接口"><a href="#使用函数式接口" class="headerlink" title="使用函数式接口"></a>使用函数式接口</h4><p>函数式接口的抽象方法的签名称为函数描述符，Java API中常见的函数式接口有：Comparable、Runnable和Callable。Java8中<code>java.util.function</code>包引入了几个新的函数式接口：Predicate、Consumer和Function。 </p>
+<h5 id="Predicate"><a href="#Predicate" class="headerlink" title="Predicate"></a>Predicate</h5><p><code>java.util.function.Predicate&lt;T&gt;</code>接口定义了一个test抽象方法，它接受泛型T对象并返回一个boolean。在你需要表示一个涉及类型T的布尔表达式时，就可以使用这个接口。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323014154098.png" alt="">  </p>
+<h5 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h5><p><code>java.util.function.Consumer&lt;T&gt;</code>定义了一个accept的抽象方法，它接受泛型T对象而没有返回值(void)。你可以用它来创建一个forEach方法，接受一个Integer的列表，并对其中每个元素执行操作。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323015005687.png" alt="">  </p>
+<h5 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h5><p><code>java.util.function.Function&lt;T, R&gt;</code>接口定义了一个apply方法，它接受一个泛型T对象并返回一个泛型R对象。如果你需要将输入对象的信息映射到输出，就可以使用这个接口。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323015409984.png" alt="">  </p>
+<h4 id="类型检查、类型推断以及限制"><a href="#类型检查、类型推断以及限制" class="headerlink" title="类型检查、类型推断以及限制"></a>类型检查、类型推断以及限制</h4><p><strong>类型检查</strong>：Lambda的类型是从使用Lambda的上下文推断出来的。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323055508906.png" alt=""><br>上述类型检查可以分为以下步骤：  </p>
+<ul>
+<li>filter方法声明第二个参数为Predicate&lt; Apple &gt;，因此将T绑定到Apple；</li>
+<li>该函数式接口定义了一个test抽象方法，test方法描述了一个函数描述符。它可以接受一个Apple对象，并返回一个boolean对象；</li>
+</ul>
+<p><strong>类型推断</strong>：Java编译器会从上下文推断出用什么函数式接口来配合Lambda表达式，这意味着它也可以推断出适合Lambda的签名。从而，编译器可以了解Lambda表达式的参数类型，这样就可以在Lambda语法中省去标注参数类型。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323060836892.png" alt=""><br><strong>有限制的局部变量</strong>：Lambda表达式也允许使用自由变量，就像匿名类一样。但局部变量必须显式声明为final，或事实上就是一个final变量。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323061447037.png" alt="">  </p>
+<h3 id="方法引用"><a href="#方法引用" class="headerlink" title="方法引用"></a>方法引用</h3><p>方法引用就是让你根据已有的方法实现来创建Lambda表达式，可被看作是仅仅调用特定方法的Lambda的一种快捷写法。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323061924896.png" alt=""><br>方法引用主要有三种：  </p>
+<ol>
+<li>指向静态方法的方法引用；</li>
+<li>指向任意类型实例方法的引用；</li>
+<li>指向现有对象的实例方法的方法引用；<h3 id="构造函数引用"><a href="#构造函数引用" class="headerlink" title="构造函数引用"></a>构造函数引用</h3>对于一个现有构造函数，可以利用它的名称和关键字new来创建它的一个引用：Classname::new。  </li>
+</ol>
+<p><strong>无参构造函数</strong><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323074150073.png" alt=""><br><strong>只有一个参数的构造函数</strong><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323074257794.png" alt=""><br><strong>具有两个参数的构造函数</strong><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323074454780.png" alt="">  </p>
+<h3 id="Lambda和方法引用实战"><a href="#Lambda和方法引用实战" class="headerlink" title="Lambda和方法引用实战"></a>Lambda和方法引用实战</h3><p>下面将一步步展示如何用lambda表达式来对一个Apple列表进行排序：  </p>
+<ul>
+<li>首先用List的sort(Comparator&lt;? super E&gt; c)方法，它需要一个Comparator对象来比较Apple。  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppleComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Apple</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Apple a1, Apple a2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a1.getWeight().compareTo(a2.getWeight());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以使用匿名内部类进行改进，而不是实现一个Comparator却只实例化一次：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inventory.sort(<span class="keyword">new</span> Comparator&lt;Apple&gt;() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Apple a1, Apple a2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a1.getWeight().compareTo(a2.getWeight());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>也可以使用Lambda表达式来传递Comparator的函数描述符<code>(T, T) -&gt; int</code>：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inventory.sort( (a1, a2) -&gt; a1.getWeight().compareTo(a2.getWeight()) );</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Comparator具有一个comparing的静态辅助方法，可以接受一个Function来提取Comparable键值，并生成一个Comparator对象：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Comparator&lt;Apple&gt; c = Comparator.comparing( (a) -&gt; a.getWeight() );</span><br><span class="line"></span><br><span class="line">inventory.sort(comparing( (a) -&gt; a.getWeight() ) );</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用方法引用：  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inventory.sort( comparing(Apple::getWeight() );</span><br></pre></td></tr></table></figure>
+<h3 id="复合Lambda表达式"><a href="#复合Lambda表达式" class="headerlink" title="复合Lambda表达式"></a>复合Lambda表达式</h3><h4 id="比较器复合"><a href="#比较器复合" class="headerlink" title="比较器复合"></a>比较器复合</h4><p><strong>逆序</strong><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323085109212.png" alt=""><br><strong>比较器链</strong><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323085145716.png" alt="">  </p>
+<h4 id="谓词复合"><a href="#谓词复合" class="headerlink" title="谓词复合"></a>谓词复合</h4><p>谓词接口包括三个方法：negate、and和or，让你可以重用已有的Predicate来创建更复杂的谓词。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323085341815.png" alt=""><br>也可把两个lambda用and方法组合起来：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323085455697.png" alt=""><br>进一步组合谓词：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323085631149.png" alt="">  </p>
+<h4 id="函数复合"><a href="#函数复合" class="headerlink" title="函数复合"></a>函数复合</h4><p>最后，还可以把Function接口所代表的Lambda表达式复合起来，Function接口为此提供了andThen和compose两个默认方法，它们都会返回Function的一个实例。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323090540316.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323090551713.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/20200323090609031.png" alt="">  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/21/Java8%E7%89%B9%E6%80%A7%E4%B9%8BLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-多线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
