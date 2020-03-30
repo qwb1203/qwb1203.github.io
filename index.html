@@ -154,6 +154,225 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Maven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/29/Maven/">Maven</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/29/Maven/" class="archive-article-date">
+  	<time datetime="2020-03-29T11:40:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Maven是什么"><a href="#Maven是什么" class="headerlink" title="Maven是什么"></a>Maven是什么</h2><p>Maven是一个项目管理工具，它包含了一个项目对象模型(POM：Project Object Model)，一组标准集合，一个项目生命周期(Project Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。  </p>
+<h3 id="Maven的核心概念"><a href="#Maven的核心概念" class="headerlink" title="Maven的核心概念"></a>Maven的核心概念</h3><ul>
+<li>约定的目录结构</li>
+</ul>
+<p>Maven要负责项目的</p>
+<ul>
+<li>POM</li>
+<li>坐标</li>
+<li>依赖</li>
+<li>仓库</li>
+<li>生命周期/插件/目标</li>
+<li>继承</li>
+<li>聚合</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/29/Maven/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java网络编程-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/28/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-%E4%B8%80/">Java网络编程</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/28/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-%E4%B8%80/" class="archive-article-date">
+  	<time datetime="2020-03-28T05:11:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基本网络概念"><a href="#基本网络概念" class="headerlink" title="基本网络概念"></a>基本网络概念</h2><p>网络中的每台机器称为一个节点，主机则表示通用的计算机节点。每个网络节点都有地址来标识一个节点序列，所有现代计算机网络都是包交换(分组交换)网络：流经网络的数据分割成小块，称为包/分组，分包的好处是可以进行校验包是否损坏。<br><strong>协议</strong>则定义了计算机如何通信，针对网络通信的不同方面，定义有很多不同的协议。<br><img src="/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-%E4%B8%80/20200328013208521.png" alt=""><br><strong>TCP/IP模型</strong>：<br><img src="/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-%E4%B8%80/20200328013419329.png" alt=""><br><strong>工作原理：</strong>当web浏览器向服务器发送获取网页的请求时，浏览器实际上只与本地主机的传输层对话。传输层将请求分解成TCP片，向数据添加序列号和校验和，然后将请求传递给本地网络层。网络层将TCP片分成IP数据报发送到远端目标地址。<br><strong>网际层：</strong>网络层协议定义了数据位和字节如何组织为更大的分组，即包，还定义了寻址机制，不同计算机要按这个寻址机制查找对方。IP协议是使用最广泛的网络层协议，包含IPv4(32位地址)和IPv6(128位地址)。在IPv4和IPv6中，数据按包在网络层上传输，这些包称为数据报。<br><strong>传输层：</strong>传输层负责确保数据报以发送的顺序接收，为防止丢包，IP网络会给数据报添加一个附加首部。传输层有两个协议：TCP和UDP。<br>UDP通常比TCP快，TCP称为可靠协议，UDP是不可靠协议。<br><strong>应用层：</strong>应用层确定了数据传输后的操作，应用层协议除了用于Web的<code>HTTP</code>，还有用于电子邮件的<code>SMTP</code>，<code>pop</code>和<code>IMAP</code>；用于文件传输的<code>FTP</code>、<code>FSP</code>和<code>TFTP</code>；用于文件访问的<code>NFS</code>。  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/28/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-%E4%B8%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-IO流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/27/IO%E6%B5%81/">IO流</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/27/IO%E6%B5%81/" class="archive-article-date">
+  	<time datetime="2020-03-27T09:26:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Java的I-O类的基本架构"><a href="#Java的I-O类的基本架构" class="headerlink" title="Java的I/O类的基本架构"></a>Java的I/O类的基本架构</h2><p>Java的I/O操作类在包<code>java.io</code>下，这些类大概可以分成如下4组：  </p>
+<ul>
+<li>基于字节操作的I/O接口：InputStream 和 OutputStream</li>
+<li>基于字符操作的I/O接口：Writer 和 Reader</li>
+<li>基于磁盘操作的I/O接口：File</li>
+<li>基于网络操作的I/O接口：Socket</li>
+</ul>
+<h2 id="基于字节的I-O操作接口"><a href="#基于字节的I-O操作接口" class="headerlink" title="基于字节的I/O操作接口"></a>基于字节的I/O操作接口</h2><p>基于字节的I/O操作接口输入和输出分别是InputStream和OutputStream，InputStream的类层次结构如下图：<br><img src="https://www.kaops.com/uploads/images/2019/02/02/165333_98004.png" alt=""><br>这个类提供了将数据读取为原始字节所需的基本方法：<br><img src="/IO%E6%B5%81/20200328041957592.png" alt=""><br>输入流根据数据类型和操作方式又被分为若干个子类，每个子类分别处理不同的操作类型。OutputStream的类层次结构也如下：<br><img src="https://www.kaops.com/uploads/images/2019/02/02/165303_71720.png" alt=""><br>这个类提供了写入数据所需的基本方法：<br><img src="/IO%E6%B5%81/20200328040937660.png" alt="">  </p>
+<h2 id="基于字符的I-O操作接口"><a href="#基于字符的I-O操作接口" class="headerlink" title="基于字符的I/O操作接口"></a>基于字符的I/O操作接口</h2><p>在我们的程序中通常操作的数据都是字符形式的，为了方便提供了一个直接写字符的I/O接口。Writer类提供了一个抽象方法<code>write(char cbuf[], int off, int len)</code>：<br><img src="https://img-blog.csdn.net/20150208222731333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjYzNzUwMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>读字符的操作接口是<code>int read(char cbuf[], int off, int len)</code>，返回读到的n个字节数：<br><img src="https://img-blog.csdn.net/20150208222700773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjYzNzUwMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">  </p>
+<h2 id="字节和字符的转化接口"><a href="#字节和字符的转化接口" class="headerlink" title="字节和字符的转化接口"></a>字节和字符的转化接口</h2><p>数据持久化或网络传输都是以字节进行的，所以必须要有从字符到字节或字节到字符的转化。其中读的转化过程如图：<br><img src="https://www.ibm.com/developerworks/cn/java/j-lo-javaio/image011.jpg" alt=""><br>InputStreamReader类是从字节到字符的转化桥梁。例如，FileReader类继承了InputStreamReader，它读取文件实际上就是读取文件流然后通过StreamDecoder解码成char。从InputStream到Reader的过程要指定编码字符集，否则将采用操作系统默认的字符集。<br>写入也是类似的过程，如图：<br><img src="https://www.ibm.com/developerworks/cn/java/j-lo-javaio/image013.jpg" alt=""><br>writer类继承了OutputStreamWriter类，通过OutputStreamWriter将Writer字符编码成OutputStream字节，由StreamEncoder完成编码过程。  </p>
+<h2 id="基于磁盘的I-O操作接口"><a href="#基于磁盘的I-O操作接口" class="headerlink" title="基于磁盘的I/O操作接口"></a>基于磁盘的I/O操作接口</h2><h3 id="几种访问文件的方式"><a href="#几种访问文件的方式" class="headerlink" title="几种访问文件的方式"></a>几种访问文件的方式</h3><p>读取和写入文件I/O操作都通过调用操作系统的接口read()和write()完成，但系统调用存在内核空间地址和用户空间地址切换问题。为了加速I/O操作，系统会在内核空间将磁盘文件进行缓存机制，来减小I/O响应时间。<br><strong>标准访问文件的方式</strong>：当用户访问文件的时候是通过内核的高速缓存来实现的，调用read()接口会从缓存读取，没有再读磁盘并缓存；调用write()接口会将数据写入内核空间的缓存中，除非显示调用sync同步命令，否则由系统决定何时从缓存写入磁盘。<br><img src="/IO%E6%B5%81/20200328121913192.png" alt=""><br><strong>直接I/O的方式</strong>：这种访问方式通常是在对数据的缓存管理由应用程序实现的数据库管理系统中，由应用程序直接访问磁盘数据。直接I/O加载速度非常缓慢，通常是直接I/O与异步I/O结合使用。<br><img src="/IO%E6%B5%81/20200328121931942.png" alt=""><br><strong>同步访问文件的方式</strong>：同步访问文件就是数据的读取和写入都是同步操作的，只有当数据被成功写入到磁盘时才返回给应用程序成功的标志。<br><strong>异步访问文件的方式</strong>：异步访问文件就是当访问数据的线程发出请求之后不会阻塞等待，而是接着去处理其他事情直到请求的数据返回。  </p>
+<h2 id="网络I-O工作机制"><a href="#网络I-O工作机制" class="headerlink" title="网络I/O工作机制"></a>网络I/O工作机制</h2><p>数据从一台主机发送到网络中的另一台主机需要经过很多步骤，要有能够沟通的物理渠道(物理链路)，要能解决沟通问题如交流方式等(通信协议)。</p>
+<h3 id="Java-Socket的工作机制"><a href="#Java-Socket的工作机制" class="headerlink" title="Java Socket的工作机制"></a>Java Socket的工作机制</h3><p>Socket套接字描述的是计算机之间完成相互通信的一种抽象功能，大部分情况下我们使用的都是基于TCP/IP的流套接字，它是一种稳定的通信协议。<br><img src="/IO%E6%B5%81/20200328124119147.png" alt=""><br>主机A的应用程序和主机B的应用程序进行通信，必须通过Socket建立连接，建立Socket连接必须由底层TCP/IP来建立TCP连接，建立TCP连接需要底层IP来寻址网络中的主机。</p>
+<h3 id="建立通信链路"><a href="#建立通信链路" class="headerlink" title="建立通信链路"></a>建立通信链路</h3><p>当客户端要与服务端通信时，客户端首先要创建一个Socket实例，操作系统为Socket实例分配本地端口号，并创建一个套接字数据结构(包含本地地址、远程地址和端口号)。在Socket实例创建完成之前，要先进行TCP的3次握手，否则将抛出IOException错误。<br>服务端将创建一个ServerSocket实例，同时操作系统也会为ServerSocket实例创建底层数据结构。当调用accept()方法时，服务端进入阻塞状态等待客户端的请求。新的请求到达时，为连接创建套接字数据结构并关联到ServerSocket实例的连接数据结构列表中，列表中每个数据结构都代表与一个客户端建立的TCP连接。  </p>
+<h3 id="数据传输"><a href="#数据传输" class="headerlink" title="数据传输"></a>数据传输</h3><p>当连接成功建立时，客户端和服务端都有一个Socket实例，Socket有一个InputStream和OutputStream来交换数据。操作系统会为他们分别分配一定大小的缓存区，数据的写入和读取都是通过这个缓存区完成的。写入端将数据写到OutputStream对应的SendQ队列，队列填满时被转移到InputStream的RecvQ队列中。如果队列都满，OutputStream的write将被阻塞。  </p>
+<blockquote>
+<p>网络I/O与磁盘I/O不同的是数据的写入和读取还要有一个协调的过程，如果两边同时传送数据可能产生死锁。  </p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/27/IO%E6%B5%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java8特性之Stream流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -718,34 +937,20 @@
 <li>threadFactory：executor创建新线程的时候用到线程工厂。</li>
 <li>handler：饱和策略。</li>
 </ul>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%90%84%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%E5%85%B3%E7%B3%BB.jpg" alt=""><br><strong>使用实例代码1：(Runnable+ThreadPoolExecutor)</strong><br><img src="/%E5%A4%9A%E7%BA%BF%E7%A8%8B/20200320071347041.png" alt=""><br><img src="/%E5%A4%9A%E7%BA%BF%E7%A8%8B/20200320071640876.png" alt="">  </p>
+<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%90%84%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%E5%85%B3%E7%B3%BB.jpg" alt=""><br><strong>使用实例代码1：(Runnable+ThreadPoolExecutor)</strong><br>MyRunnable.java  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 这是一个简单的Runnable类，需要大约5秒钟来执行其任务。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> shuang.kou</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String command;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyRunnable</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.command = s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">" Start. Time = "</span> + <span class="keyword">new</span> Date());</span><br><span class="line">        processCommand();</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">" End. Time = "</span> + <span class="keyword">new</span> Date());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">processCommand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.command;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line">ThreadPoolExecutorDemo.java  </span><br><span class="line">```java</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ArrayBlockingQueue;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ThreadPoolExecutor;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPoolExecutorDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CORE_POOL_SIZE = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_POOL_SIZE = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> QUEUE_CAPACITY = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Long KEEP_ALIVE_TIME = <span class="number">1L</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用阿里巴巴推荐的创建线程池的方式</span></span><br><span class="line">        <span class="comment">//通过ThreadPoolExecutor构造函数自定义参数创建</span></span><br><span class="line">        ThreadPoolExecutor executor = <span class="keyword">new</span> ThreadPoolExecutor(</span><br><span class="line">                CORE_POOL_SIZE,</span><br><span class="line">                MAX_POOL_SIZE,</span><br><span class="line">                KEEP_ALIVE_TIME,</span><br><span class="line">                TimeUnit.SECONDS,</span><br><span class="line">                <span class="keyword">new</span> ArrayBlockingQueue&lt;&gt;(QUEUE_CAPACITY),</span><br><span class="line">                <span class="keyword">new</span> ThreadPoolExecutor.CallerRunsPolicy());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="comment">//创建WorkerThread对象（WorkerThread类实现了Runnable 接口）</span></span><br><span class="line">            Runnable worker = <span class="keyword">new</span> MyRunnable(<span class="string">""</span> + i);</span><br><span class="line">            <span class="comment">//执行Runnable</span></span><br><span class="line">            executor.execute(worker);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//终止线程池</span></span><br><span class="line">        executor.shutdown();</span><br><span class="line">        <span class="keyword">while</span> (!executor.isTerminated()) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"Finished all threads"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>isTerminated :当调用shutdown()方法后，并且所有提交的任务完成后返回为true。</p>
 </blockquote>
-<p><strong>使用实例代码2：(Callable+ThreadPoolExecutor)</strong><br><img src="/%E5%A4%9A%E7%BA%BF%E7%A8%8B/20200320073847175.png" alt=""><br><img src="/%E5%A4%9A%E7%BA%BF%E7%A8%8B/20200320073926665.png" alt=""><br><img src="/%E5%A4%9A%E7%BA%BF%E7%A8%8B/20200320074032574.png" alt=""></p>
+<p><strong>使用实例代码2：(Callable+ThreadPoolExecutor)</strong><br>MyCallable.java  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyCallable</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        <span class="comment">//返回执行当前 Callable 的线程名字</span></span><br><span class="line">        <span class="keyword">return</span> Thread.currentThread().getName();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>CallableDemo.java  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ArrayBlockingQueue;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutionException;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Future;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ThreadPoolExecutor;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallableDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CORE_POOL_SIZE = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_POOL_SIZE = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> QUEUE_CAPACITY = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Long KEEP_ALIVE_TIME = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用阿里巴巴推荐的创建线程池的方式</span></span><br><span class="line">        <span class="comment">//通过ThreadPoolExecutor构造函数自定义参数创建</span></span><br><span class="line">        ThreadPoolExecutor executor = <span class="keyword">new</span> ThreadPoolExecutor(</span><br><span class="line">                CORE_POOL_SIZE,</span><br><span class="line">                MAX_POOL_SIZE,</span><br><span class="line">                KEEP_ALIVE_TIME,</span><br><span class="line">                TimeUnit.SECONDS,</span><br><span class="line">                <span class="keyword">new</span> ArrayBlockingQueue&lt;&gt;(QUEUE_CAPACITY),</span><br><span class="line">                <span class="keyword">new</span> ThreadPoolExecutor.CallerRunsPolicy());</span><br><span class="line"></span><br><span class="line">        List&lt;Future&lt;String&gt;&gt; futureList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Callable&lt;String&gt; callable = <span class="keyword">new</span> MyCallable();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="comment">//提交任务到线程池</span></span><br><span class="line">            Future&lt;String&gt; future = executor.submit(callable);</span><br><span class="line">            <span class="comment">//将返回值 future 添加到 list，我们可以通过 future 获得 执行 Callable 得到的返回值</span></span><br><span class="line">            futureList.add(future);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Future&lt;String&gt; fut : futureList) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.out.println(<span class="keyword">new</span> Date() + <span class="string">"::"</span> + fut.get());</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException | ExecutionException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//关闭线程池</span></span><br><span class="line">        executor.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>output:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Wed Nov 13 13:40:41 CST 2019::pool-1-thread-1</span><br><span class="line">Wed Nov 13 13:40:42 CST 2019::pool-1-thread-2</span><br><span class="line">Wed Nov 13 13:40:42 CST 2019::pool-1-thread-3</span><br><span class="line">Wed Nov 13 13:40:42 CST 2019::pool-1-thread-4</span><br><span class="line">Wed Nov 13 13:40:42 CST 2019::pool-1-thread-5</span><br><span class="line">Wed Nov 13 13:40:42 CST 2019::pool-1-thread-3</span><br><span class="line">Wed Nov 13 13:40:43 CST 2019::pool-1-thread-2</span><br><span class="line">Wed Nov 13 13:40:43 CST 2019::pool-1-thread-1</span><br><span class="line">Wed Nov 13 13:40:43 CST 2019::pool-1-thread-4</span><br><span class="line">Wed Nov 13 13:40:43 CST 2019::pool-1-thread-5</span><br></pre></td></tr></table></figure>
+
 <p><strong>原理分析：</strong>  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 存放线程池的运行状态 (runState) 和线程池内有效线程的数量 (workerCount)</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> AtomicInteger ctl = <span class="keyword">new</span> AtomicInteger(ctlOf(RUNNING, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">workerCountOf</span><span class="params">(<span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> c &amp; CAPACITY;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> BlockingQueue&lt;Runnable&gt; workQueue;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(Runnable command)</span> </span>&#123;</span><br><span class="line">     <span class="comment">// 如果任务为null，则抛出异常。</span></span><br><span class="line">     <span class="keyword">if</span> (command == <span class="keyword">null</span>)</span><br><span class="line">         <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">     <span class="comment">// ctl 中保存的线程池当前的一些状态信息</span></span><br><span class="line">     <span class="keyword">int</span> c = ctl.get();</span><br><span class="line"></span><br><span class="line">     <span class="comment">//  下面会涉及到 3 步 操作</span></span><br><span class="line">     <span class="comment">// 1.首先判断当前线程池中之行的任务数量是否小于 corePoolSize</span></span><br><span class="line">     <span class="comment">// 如果小于的话，通过addWorker(command, true)新建一个线程，并将任务(command)添加到该线程中；然后，启动该线程从而执行任务。</span></span><br><span class="line">     <span class="keyword">if</span> (workerCountOf(c) &lt; corePoolSize) &#123;</span><br><span class="line">         <span class="keyword">if</span> (addWorker(command, <span class="keyword">true</span>))</span><br><span class="line">             <span class="keyword">return</span>;</span><br><span class="line">         c = ctl.get();</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 2.如果当前之行的任务数量大于等于 corePoolSize 的时候就会走到这里</span></span><br><span class="line">     <span class="comment">// 通过 isRunning 方法判断线程池状态，线程池处于 RUNNING 状态才会被并且队列可以加入任务，该任务才会被加入进去</span></span><br><span class="line">     <span class="keyword">if</span> (isRunning(c) &amp;&amp; workQueue.offer(command)) &#123;</span><br><span class="line">         <span class="keyword">int</span> recheck = ctl.get();</span><br><span class="line">         <span class="comment">// 再次获取线程池状态，如果线程池状态不是 RUNNING 状态就需要从任务队列中移除任务，并尝试判断线程是否全部执行完毕。同时执行拒绝策略。</span></span><br><span class="line">         <span class="keyword">if</span> (!isRunning(recheck) &amp;&amp; remove(command))</span><br><span class="line">             reject(command);</span><br><span class="line">             <span class="comment">// 如果当前线程池为空就新创建一个线程并执行。</span></span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (workerCountOf(recheck) == <span class="number">0</span>)</span><br><span class="line">             addWorker(<span class="keyword">null</span>, <span class="keyword">false</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">//3. 通过addWorker(command, false)新建一个线程，并将任务(command)添加到该线程中；然后，启动该线程从而执行任务。</span></span><br><span class="line">     <span class="comment">//如果addWorker(command, false)执行失败，则通过reject()执行相应的拒绝策略的内容。</span></span><br><span class="line">     <span class="keyword">else</span> <span class="keyword">if</span> (!addWorker(command, <span class="keyword">false</span>))</span><br><span class="line">         reject(command);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/%E5%9B%BE%E8%A7%A3%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86.png" alt="">   </p>
-<h3 id="ScheduledThreadPoolExecutor"><a href="#ScheduledThreadPoolExecutor" class="headerlink" title="ScheduledThreadPoolExecutor"></a>ScheduledThreadPoolExecutor</h3><p>ScheduledThreadPoolExecutor主要用来在给定的延迟后运行任务，或者定期执行任务。 ScheduledThreadPoolExecutor使用的任务队列DelayQueue封装了一个PriorityQueue，PriorityQueue会对队列中的任务进行排序，执行所需时间短的放在前面先被执行(ScheduledFutureTask的time变量小的先执行) ，如果执行所需时间相同则先提交的任务先被执行(ScheduledFutureTask的squenceNumber变量小的先执行)。<br><strong>运行机制：</strong><br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL215LWJsb2ctdG8tdXNlLm9zcy1jbi1iZWlqaW5nLmFsaXl1bmNzLmNvbS8xOC00LTE2LzkyNTk0Njk4LmpwZw?x-oss-process=image/format,png" alt="">  </p>
-<ol>
-<li>当调用ScheduledThreadPoolExecutor的scheduleAtFixedRate()方法或者scheduleWithFixedDelay()方法时，会向ScheduledThreadPoolExecutor的DelayQueue添加一个实现了RunnableScheduledFuture接口的ScheduledFutureTask。</li>
-<li>线程池中的线程从DelayQueue中获取ScheduledFutureTask，然后执行任务。</li>
-</ol>
-<p>ScheduledThreadPoolExecutor为了实现周期性的执行任务，对ThreadPoolExecutor做了如下修改：</p>
-<ul>
-<li>使用DelayQueue作为任务队列；</li>
-<li>获取任务的方式不同；</li>
-<li>执行周期任务后，增加了额外的处理；</li>
-</ul>
-<p><strong>执行周期任务的步骤：</strong><br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL215LWJsb2ctdG8tdXNlLm9zcy1jbi1iZWlqaW5nLmFsaXl1bmNzLmNvbS8xOC01LTMwLzU5OTE2Mzg5LmpwZw?x-oss-process=image/format,png" alt="">  </p>
-<ul>
-<li>线程1从DelayQueue中获取已到期的ScheduledFutureTask(DelayQueue.take())。到期任务是指ScheduledFutureTask的time大于等于当前系统的时间；</li>
-<li>线程1执行这个ScheduledFutureTask；</li>
-<li>线程1修改ScheduledFutureTask的time变量为下次将要被执行的时间；</li>
-<li>线程1把这个修改time之后的ScheduledFutureTask放回DelayQueue中(DelayQueue.add())；</li>
-</ul>
-<h3 id="FixedThreadPool"><a href="#FixedThreadPool" class="headerlink" title="FixedThreadPool"></a>FixedThreadPool</h3><p><code>FixedThreadPool</code>被称为可重用固定线程数的线程池。  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 创建一个可重用固定数量线程的线程池</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newFixedThreadPool</span><span class="params">(<span class="keyword">int</span> nThreads, ThreadFactory threadFactory)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(nThreads, nThreads,</span><br><span class="line">                                   <span class="number">0L</span>, TimeUnit.MILLISECONDS,</span><br><span class="line">                                   <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;(),</span><br><span class="line">                                   threadFactory);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newFixedThreadPool</span><span class="params">(<span class="keyword">int</span> nThreads)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(nThreads, nThreads,</span><br><span class="line">                                   <span class="number">0L</span>, TimeUnit.MILLISECONDS,</span><br><span class="line">                                   <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;());</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 存放线程池的运行状态 (runState) 和线程池内有效线程的数量 (workerCount)</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">final</span> AtomicInteger ctl = <span class="keyword">new</span> AtomicInteger(ctlOf(RUNNING, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">workerCountOf</span><span class="params">(<span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c &amp; CAPACITY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> BlockingQueue&lt;Runnable&gt; workQueue;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(Runnable command)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 如果任务为null，则抛出异常。</span></span><br><span class="line">        <span class="keyword">if</span> (command == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        <span class="comment">// ctl 中保存的线程池当前的一些状态信息</span></span><br><span class="line">        <span class="keyword">int</span> c = ctl.get();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  下面会涉及到 3 步 操作</span></span><br><span class="line">        <span class="comment">// 1.首先判断当前线程池中之行的任务数量是否小于 corePoolSize</span></span><br><span class="line">        <span class="comment">// 如果小于的话，通过addWorker(command, true)新建一个线程，并将任务(command)添加到该线程中；然后，启动该线程从而执行任务。</span></span><br><span class="line">        <span class="keyword">if</span> (workerCountOf(c) &lt; corePoolSize) &#123;</span><br><span class="line">            <span class="keyword">if</span> (addWorker(command, <span class="keyword">true</span>))</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            c = ctl.get();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 2.如果当前之行的任务数量大于等于 corePoolSize 的时候就会走到这里</span></span><br><span class="line">        <span class="comment">// 通过 isRunning 方法判断线程池状态，线程池处于 RUNNING 状态才会被并且队列可以加入任务，该任务才会被加入进去</span></span><br><span class="line">        <span class="keyword">if</span> (isRunning(c) &amp;&amp; workQueue.offer(command)) &#123;</span><br><span class="line">            <span class="keyword">int</span> recheck = ctl.get();</span><br><span class="line">            <span class="comment">// 再次获取线程池状态，如果线程池状态不是 RUNNING 状态就需要从任务队列中移除任务，并尝试判断线程是否全部执行完毕。同时执行拒绝策略。</span></span><br><span class="line">            <span class="keyword">if</span> (!isRunning(recheck) &amp;&amp; remove(command))</span><br><span class="line">                reject(command);</span><br><span class="line">                <span class="comment">// 如果当前线程池为空就新创建一个线程并执行。</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (workerCountOf(recheck) == <span class="number">0</span>)</span><br><span class="line">                addWorker(<span class="keyword">null</span>, <span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//3. 通过addWorker(command, false)新建一个线程，并将任务(command)添加到该线程中；然后，启动该线程从而执行任务。</span></span><br><span class="line">        <span class="comment">//如果addWorker(command, false)执行失败，则通过reject()执行相应的拒绝策略的内容。</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (!addWorker(command, <span class="keyword">false</span>))</span><br><span class="line">            reject(command);</span><br><span class="line">    &#125;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">### ScheduledThreadPoolExecutor</span><br><span class="line">ScheduledThreadPoolExecutor主要用来在给定的延迟后运行任务，或者定期执行任务。 ScheduledThreadPoolExecutor使用的任务队列DelayQueue封装了一个PriorityQueue，PriorityQueue会对队列中的任务进行排序，执行所需时间短的放在前面先被执行(ScheduledFutureTask的time变量小的先执行) ，如果执行所需时间相同则先提交的任务先被执行(ScheduledFutureTask的squenceNumber变量小的先执行)。  </span><br><span class="line">**运行机制：**  </span><br><span class="line">![](https:<span class="comment">//imgconvert.csdnimg.cn/aHR0cDovL215LWJsb2ctdG8tdXNlLm9zcy1jbi1iZWlqaW5nLmFsaXl1bmNzLmNvbS8xOC00LTE2LzkyNTk0Njk4LmpwZw?x-oss-process=image/format,png)  </span></span><br><span class="line"><span class="number">1</span>. 当调用ScheduledThreadPoolExecutor的scheduleAtFixedRate()方法或者scheduleWithFixedDelay()方法时，会向ScheduledThreadPoolExecutor的DelayQueue添加一个实现了RunnableScheduledFuture接口的ScheduledFutureTask。</span><br><span class="line"><span class="number">2</span>. 线程池中的线程从DelayQueue中获取ScheduledFutureTask，然后执行任务。</span><br><span class="line"></span><br><span class="line">ScheduledThreadPoolExecutor为了实现周期性的执行任务，对ThreadPoolExecutor做了如下修改：</span><br><span class="line">* 使用DelayQueue作为任务队列；</span><br><span class="line">* 获取任务的方式不同；</span><br><span class="line">* 执行周期任务后，增加了额外的处理；</span><br><span class="line"></span><br><span class="line">**执行周期任务的步骤：**  </span><br><span class="line">![](https:<span class="comment">//imgconvert.csdnimg.cn/aHR0cDovL215LWJsb2ctdG8tdXNlLm9zcy1jbi1iZWlqaW5nLmFsaXl1bmNzLmNvbS8xOC01LTMwLzU5OTE2Mzg5LmpwZw?x-oss-process=image/format,png)  </span></span><br><span class="line">* 线程<span class="number">1</span>从DelayQueue中获取已到期的ScheduledFutureTask(DelayQueue.take())。到期任务是指ScheduledFutureTask的time大于等于当前系统的时间；</span><br><span class="line">* 线程<span class="number">1</span>执行这个ScheduledFutureTask；</span><br><span class="line">* 线程<span class="number">1</span>修改ScheduledFutureTask的time变量为下次将要被执行的时间；</span><br><span class="line">* 线程<span class="number">1</span>把这个修改time之后的ScheduledFutureTask放回DelayQueue中(DelayQueue.add())；</span><br><span class="line"></span><br><span class="line">### FixedThreadPool</span><br><span class="line">`FixedThreadPool`被称为可重用固定线程数的线程池。  </span><br><span class="line">```java</span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建一个可重用固定数量线程的线程池</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newFixedThreadPool</span><span class="params">(<span class="keyword">int</span> nThreads, ThreadFactory threadFactory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(nThreads, nThreads,</span><br><span class="line">                                      <span class="number">0L</span>, TimeUnit.MILLISECONDS,</span><br><span class="line">                                      <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;(),</span><br><span class="line">                                      threadFactory);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newFixedThreadPool</span><span class="params">(<span class="keyword">int</span> nThreads)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(nThreads, nThreads,</span><br><span class="line">                                      <span class="number">0L</span>, TimeUnit.MILLISECONDS,</span><br><span class="line">                                      <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>FixedThreadPool的corePoolSize和maximum都被设置为nThreads。</p>
 </blockquote>
