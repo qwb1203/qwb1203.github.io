@@ -15,55 +15,54 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="title: Java8特性之Stream流date: 2020-03-23 21:09:46tags:  流是什么Stream流是Java8的新成员，可以把它们看成遍历数据集的高级迭代器，它允许你以声明性方式处理数据集合(通过查询语句来表达，而不是临时编写一个实现)。此外，流还可以透明地并行处理(多线程)，只能使用一次，采用内部迭代方式访问数据集。Java8之前，当我们要对一个集合容器里的元素">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324011127889.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324011341259.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324015353831.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326064247202.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326074744409.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326075009470.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326075129429.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020343049.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020537333.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020717951.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020856741.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324023305117.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324054903430.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055153790.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055516889.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055717396.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055727633.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055856524.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060100920.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060511637.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060708800.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060721783.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324083112765.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324084101170.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324084537749.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324085023661.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324085109703.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324085603018.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326081239789.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326081925245.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082027574.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082048056.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082619700.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082853108.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326083146398.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326083617418.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326083751352.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326084155121.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326084450359.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327123450745.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327123603811.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327123906316.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327124356439.png">
-<meta property="og:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327124915147.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GK77WT.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GK7oF0.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKbbqJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GK74wn.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GK7gSS.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GK7yJf.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GK7OOJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GK7vwR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GK7xT1.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHSFx.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHpY6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHilD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHilD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHkOH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHEmd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHV0A.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHZTI.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHntP.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHuff.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHMp8.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHQ1S.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHl6g.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKH1XQ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKH8mj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHJ7n.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHtkq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHNt0.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHUhV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKHdpT.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMAGDA.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMAM9O.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMAlge.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMA1jH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GKXok9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMA8ud.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMAJHI.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMAtEt.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMAU4f.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMAw8S.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMABvQ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMAsDs.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMAcEq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GMA25V.png">
 <meta property="article:published_time" content="2020-03-23T13:09:46.185Z">
-<meta property="article:modified_time" content="2020-03-27T04:51:56.986Z">
+<meta property="article:modified_time" content="2020-03-31T05:54:08.768Z">
 <meta property="article:author" content="QWB">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324011127889.png">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/03/31/GK77WT.png">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -222,7 +221,7 @@
         <hr>
 <p>title: Java8特性之Stream流<br>date: 2020-03-23 21:09:46<br>tags:</p>
 <hr>
-<h2 id="流是什么"><a href="#流是什么" class="headerlink" title="流是什么"></a>流是什么</h2><p>Stream流是Java8的新成员，可以把它们看成遍历数据集的高级迭代器，它允许你以声明性方式处理数据集合(通过查询语句来表达，而不是临时编写一个实现)。此外，流还可以透明地并行处理(多线程)，只能使用一次，采用内部迭代方式访问数据集。<br>Java8之前，当我们要对一个集合容器里的元素作比较，然后返回一个排序后的结果集。我们是这样实现的：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324011127889.png" alt=""><br>在这段代码中多了一个作为一次性中间容器的“垃圾变量”lowCaloricDishes，用Stream流可以解决这个问题：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324011341259.png" alt="">  </p>
+<h2 id="流是什么"><a href="#流是什么" class="headerlink" title="流是什么"></a>流是什么</h2><p>Stream流是Java8的新成员，可以把它们看成遍历数据集的高级迭代器，它允许你以声明性方式处理数据集合(通过查询语句来表达，而不是临时编写一个实现)。此外，流还可以透明地并行处理(多线程)，只能使用一次，采用内部迭代方式访问数据集。<br>Java8之前，当我们要对一个集合容器里的元素作比较，然后返回一个排序后的结果集。我们是这样实现的：<br><a href="https://imgchr.com/i/GK77WT" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GK77WT.png" alt="GK77WT.png"></a><br>在这段代码中多了一个作为一次性中间容器的“垃圾变量”lowCaloricDishes，用Stream流可以解决这个问题：<br><a href="https://imgchr.com/i/GK7oF0" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GK7oF0.png" alt="GK7oF0.png"></a>  </p>
 <blockquote>
 <p>多线程执行只需把stream()换成parallelStream()</p>
 </blockquote>
@@ -232,13 +231,13 @@
 <li>可复合——更灵活</li>
 <li>可并行——性能更好</li>
 </ul>
-<h2 id="流操作"><a href="#流操作" class="headerlink" title="流操作"></a>流操作</h2><p><code>java.util.stream.Stream</code>中的Stream接口定义了许多操作，它们可以分为两大类：可以连接起来的流操作称为中间操作；关闭流的操作称为终端操作。<br><strong>中间操作</strong>：中间操作会返回另一个流，这让多个操作可以连接起来形成一个查询。中间操作不会执行任何处理，只有流水线上触发一个终端操作才一次性全部处理。<br><strong>终端操作</strong>：终端操作会从流的流水线生成结果，其结果是任何不是流的值。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324015353831.png" alt="">  </p>
+<h2 id="流操作"><a href="#流操作" class="headerlink" title="流操作"></a>流操作</h2><p><code>java.util.stream.Stream</code>中的Stream接口定义了许多操作，它们可以分为两大类：可以连接起来的流操作称为中间操作；关闭流的操作称为终端操作。<br><strong>中间操作</strong>：中间操作会返回另一个流，这让多个操作可以连接起来形成一个查询。中间操作不会执行任何处理，只有流水线上触发一个终端操作才一次性全部处理。<br><strong>终端操作</strong>：终端操作会从流的流水线生成结果，其结果是任何不是流的值。<br><a href="https://imgchr.com/i/GKbbqJ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKbbqJ.png" alt="GKbbqJ.png"></a>  </p>
 <h2 id="构建流"><a href="#构建流" class="headerlink" title="构建流"></a>构建流</h2><h3 id="由值创建流"><a href="#由值创建流" class="headerlink" title="由值创建流"></a>由值创建流</h3><p>可以使用静态方法Stream.of来通过显式值创建一个流，它可以接受任意数量的参数；也可以使用empty方法得到一个空流：  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream = Stream.of(<span class="string">"Java 8"</span>,<span class="string">"Lambdas"</span>,<span class="string">"In"</span>,<span class="string">"Action"</span>);</span><br><span class="line">Stream&lt;String&gt; emptyStream = Stream.empty();</span><br></pre></td></tr></table></figure>
 <h3 id="由数组创建流"><a href="#由数组创建流" class="headerlink" title="由数组创建流"></a>由数组创建流</h3><p>可以使用Arrays.stream方法从数组创建一个流，它接受一个数组作为参数：  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] numbers = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> sum = Arrays.stream(numbers).sum();</span><br></pre></td></tr></table></figure>
-<h3 id="由文件生成流"><a href="#由文件生成流" class="headerlink" title="由文件生成流"></a>由文件生成流</h3><p><code>java.nio.file.Files</code>中的很多静态方法都会返回一个流。例如：Files.lines方法会返回一个由指定文件中的各行构成的字符串流：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326064247202.png" alt=""><br>上述代码用Files.lines得到一个流，再对流中的每一个元素(指定文件中的每一行)用split将其扁平流化拆分为单词，最后调用distinct和count方法算出流中有多少各不相同的单词。  </p>
-<h3 id="由函数生成流：创建无限流"><a href="#由函数生成流：创建无限流" class="headerlink" title="由函数生成流：创建无限流"></a>由函数生成流：创建无限流</h3><p>Stream API提供了两个静态方法来生成无限流：Stream.iterate和Stream.generate。由这两个方法产生的流会用给定的函数按需创建，一般可以用limit(n)来对这种流加以限制，以避免无穷计算值。<br><strong>迭代</strong>：iterate方法接受一个初值值还有一个依次应用在每个产生的新值上的Lambda(UnaryOperator&lt; T &gt;)类型。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326074744409.png" alt=""><br><strong>生成斐波那契数列的前20个元组：</strong><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326075009470.png" alt=""><br><strong>生成</strong>：generate方法接受一个Supplier&lt; T &gt;类型的Lambda提供新的值来生成一个无限流：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326075129429.png" alt="">  </p>
+<h3 id="由文件生成流"><a href="#由文件生成流" class="headerlink" title="由文件生成流"></a>由文件生成流</h3><p><code>java.nio.file.Files</code>中的很多静态方法都会返回一个流。例如：Files.lines方法会返回一个由指定文件中的各行构成的字符串流：<br><a href="https://imgchr.com/i/GK74wn" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GK74wn.png" alt="GK74wn.png"></a><br>上述代码用Files.lines得到一个流，再对流中的每一个元素(指定文件中的每一行)用split将其扁平流化拆分为单词，最后调用distinct和count方法算出流中有多少各不相同的单词。  </p>
+<h3 id="由函数生成流：创建无限流"><a href="#由函数生成流：创建无限流" class="headerlink" title="由函数生成流：创建无限流"></a>由函数生成流：创建无限流</h3><p>Stream API提供了两个静态方法来生成无限流：Stream.iterate和Stream.generate。由这两个方法产生的流会用给定的函数按需创建，一般可以用limit(n)来对这种流加以限制，以避免无穷计算值。<br><strong>迭代</strong>：iterate方法接受一个初值值还有一个依次应用在每个产生的新值上的Lambda(UnaryOperator&lt; T &gt;)类型。<br><a href="https://imgchr.com/i/GK7gSS" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GK7gSS.png" alt="GK7gSS.png"></a><br><strong>生成斐波那契数列的前20个元组：</strong><br><a href="https://imgchr.com/i/GK7yJf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GK7yJf.png" alt="GK7yJf.png"></a><br><strong>生成</strong>：generate方法接受一个Supplier&lt; T &gt;类型的Lambda提供新的值来生成一个无限流：<br><a href="https://imgchr.com/i/GK7OOJ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GK7OOJ.png" alt="GK7OOJ.png"></a>  </p>
 <h2 id="流的使用"><a href="#流的使用" class="headerlink" title="流的使用"></a>流的使用</h2><p>流的使用一般包括三件事：  </p>
 <ul>
 <li>一个数据源(如集合)来执行一个查询；</li>
@@ -246,61 +245,172 @@
 <li>一个终端操作，执行流水线，并能生成结果；</li>
 </ul>
 <h3 id="筛选和切片"><a href="#筛选和切片" class="headerlink" title="筛选和切片"></a>筛选和切片</h3><p>选择流中的元素，可以用谓词筛选，筛选出各不相同的元素，忽略流中的头几个元素，或将流截短至指定长度。</p>
-<h4 id="用谓词筛选"><a href="#用谓词筛选" class="headerlink" title="用谓词筛选"></a>用谓词筛选</h4><p>Stream接口支持filter方法，该操作会接受一个谓词(一个返回boolean的函数)作为参数，并返回一个包括所有符合元素的流。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020343049.png" alt="">  </p>
-<h4 id="筛选各异的元素"><a href="#筛选各异的元素" class="headerlink" title="筛选各异的元素"></a>筛选各异的元素</h4><p>流还支持一个distinct方法，它会返回一个元素各异(根据流所生成元素的hashCode和equals方法实现)的流。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020537333.png" alt="">  </p>
-<h4 id="截短流"><a href="#截短流" class="headerlink" title="截短流"></a>截短流</h4><p>流支持limit(n)方法，该方法会返回一个不超过给定长度的流。如果流是有序的，则最多返回前n个元素。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020717951.png" alt="">  </p>
-<h4 id="跳过元素"><a href="#跳过元素" class="headerlink" title="跳过元素"></a>跳过元素</h4><p>流还支持skip(n)方法，返回一个扔掉了前n个元素的流。如果流中元素不足n个，则返回一个空流。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324020856741.png" alt="">  </p>
+<h4 id="用谓词筛选"><a href="#用谓词筛选" class="headerlink" title="用谓词筛选"></a>用谓词筛选</h4><p>Stream接口支持filter方法，该操作会接受一个谓词(一个返回boolean的函数)作为参数，并返回一个包括所有符合元素的流。<br><a href="https://imgchr.com/i/GK7vwR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GK7vwR.png" alt="GK7vwR.png"></a>  </p>
+<h4 id="筛选各异的元素"><a href="#筛选各异的元素" class="headerlink" title="筛选各异的元素"></a>筛选各异的元素</h4><p>流还支持一个distinct方法，它会返回一个元素各异(根据流所生成元素的hashCode和equals方法实现)的流。<br><a href="https://imgchr.com/i/GK7xT1" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GK7xT1.png" alt="GK7xT1.png"></a>  </p>
+<h4 id="截短流"><a href="#截短流" class="headerlink" title="截短流"></a>截短流</h4><p>流支持limit(n)方法，该方法会返回一个不超过给定长度的流。如果流是有序的，则最多返回前n个元素。<br><a href="https://imgchr.com/i/GKHSFx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHSFx.png" alt="GKHSFx.png"></a>  </p>
+<h4 id="跳过元素"><a href="#跳过元素" class="headerlink" title="跳过元素"></a>跳过元素</h4><p>流还支持skip(n)方法，返回一个扔掉了前n个元素的流。如果流中元素不足n个，则返回一个空流。<br><a href="https://imgchr.com/i/GKHpY6" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHpY6.png" alt="GKHpY6.png"></a>  </p>
 <h3 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h3><p>Stream流API通过map和flatmap提供了从某些对象中选择信息的工具。  </p>
-<h4 id="对流中每一个元素应用函数"><a href="#对流中每一个元素应用函数" class="headerlink" title="对流中每一个元素应用函数"></a>对流中每一个元素应用函数</h4><p>流支持map方法，它会接受一个函数作为参数。这个函数会被应用到每个元素上，并将其映射成一个新的元素。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324023305117.png" alt="">  </p>
-<h4 id="流的扁平化"><a href="#流的扁平化" class="headerlink" title="流的扁平化"></a>流的扁平化</h4><p>对于一张单词表，返回一张列表并列出里面不相同的字符。例如，给定单词列表[“Hello”,”World”]，你想要返回列表 [“H”,”e”,”l”, “o”,”W”,”r”,”d”] 。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324054903430.png" alt=""><br>但是，map方法为每个单词返回的是一个String类型的数组，我们想要的是Stream&lt; String &gt;。这时可以用flatMap将使用map方法时生成的单个流都合并起来，即扁平化为一个流。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055153790.png" alt="">  </p>
+<h4 id="对流中每一个元素应用函数"><a href="#对流中每一个元素应用函数" class="headerlink" title="对流中每一个元素应用函数"></a>对流中每一个元素应用函数</h4><p>流支持map方法，它会接受一个函数作为参数。这个函数会被应用到每个元素上，并将其映射成一个新的元素。<br><a href="https://imgchr.com/i/GKHilD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHilD.png" alt="GKHilD.png"></a>  </p>
+<h4 id="流的扁平化"><a href="#流的扁平化" class="headerlink" title="流的扁平化"></a>流的扁平化</h4><p>对于一张单词表，返回一张列表并列出里面不相同的字符。例如，给定单词列表[“Hello”,”World”]，你想要返回列表 [“H”,”e”,”l”, “o”,”W”,”r”,”d”] 。<br><a href="https://imgchr.com/i/GKHilD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHilD.png" alt="GKHilD.png"></a><br>但是，map方法为每个单词返回的是一个String类型的数组，我们想要的是Stream&lt; String &gt;。这时可以用flatMap将使用map方法时生成的单个流都合并起来，即扁平化为一个流。<br><a href="https://imgchr.com/i/GKHkOH" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHkOH.png" alt="GKHkOH.png"></a>  </p>
 <blockquote>
 <p>flatMap方法让你把一个流中的每个值都换成另一个流，然后把所有的流连接起来成为一个流。</p>
 </blockquote>
-<h3 id="查找和匹配"><a href="#查找和匹配" class="headerlink" title="查找和匹配"></a>查找和匹配</h3><h4 id="检查谓词是否至少匹配一个元素"><a href="#检查谓词是否至少匹配一个元素" class="headerlink" title="检查谓词是否至少匹配一个元素"></a>检查谓词是否至少匹配一个元素</h4><p>anyMatch方法可以判断流中是否有一个元素能匹配给定的谓词，它返回一个boolean，因此是一个终端操作。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055516889.png" alt="">  </p>
-<h4 id="检查谓词是否匹配所有元素"><a href="#检查谓词是否匹配所有元素" class="headerlink" title="检查谓词是否匹配所有元素"></a>检查谓词是否匹配所有元素</h4><p>allMatch和anyMatch类似，但它会查看流中的元素是否都能匹配；和allMatch相对的是noneMatch，可以确保流中没有任何元素匹配。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055717396.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055727633.png" alt="">  </p>
-<h4 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h4><p>findAny方法将返回当前流中的任意元素，它可以与其他流操作结合使用。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324055856524.png" alt="">  </p>
-<h4 id="查找第一个元素"><a href="#查找第一个元素" class="headerlink" title="查找第一个元素"></a>查找第一个元素</h4><p>findFirst方法的工作方式类似于findAny，能找到顺序流的第一个元素。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060100920.png" alt="">  </p>
-<h3 id="归约"><a href="#归约" class="headerlink" title="归约"></a>归约</h3><h4 id="元素求和"><a href="#元素求和" class="headerlink" title="元素求和"></a>元素求和</h4><p>reduce接受两个参数，一个是初始值；一个BinaryOperator&lt; T &gt;对象来将两个元素结合起来产生一个新值。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060511637.png" alt="">  </p>
-<h4 id="最大值和最小值"><a href="#最大值和最小值" class="headerlink" title="最大值和最小值"></a>最大值和最小值</h4><p><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060708800.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324060721783.png" alt="">  </p>
-<h2 id="数值流"><a href="#数值流" class="headerlink" title="数值流"></a>数值流</h2><p>我们在前面看到可以使用reduce方法计算流中元素的总和。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324083112765.png" alt=""><br>这段代码有一个暗含的装箱成本，每个Integer都必须拆箱成一个原始类型，在进行求和。为此，Stream API提供了原始类型流特化来处理数值流。  </p>
+<h3 id="查找和匹配"><a href="#查找和匹配" class="headerlink" title="查找和匹配"></a>查找和匹配</h3><h4 id="Optional简介"><a href="#Optional简介" class="headerlink" title="Optional简介"></a>Optional简介</h4><p>Optional&lt; T &gt;类(java.util.Optional)是一个容器类，代表一个值存在或不存在，用来防止查找元素时NullPointerException。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//of（）：为非null的值创建一个Optional</span></span><br><span class="line">Optional&lt;String&gt; optional = Optional.of(<span class="string">"bam"</span>);</span><br><span class="line"><span class="comment">// isPresent（）： 如果值存在返回true，否则返回false</span></span><br><span class="line">optional.isPresent();           <span class="comment">// true</span></span><br><span class="line"><span class="comment">//get()：如果Optional有值则将其返回，否则抛出NoSuchElementException</span></span><br><span class="line">optional.get();                 <span class="comment">// "bam"</span></span><br><span class="line"><span class="comment">//orElse（）：如果有值则将其返回，否则返回指定的其它值</span></span><br><span class="line">optional.orElse(<span class="string">"fallback"</span>);    <span class="comment">// "bam"</span></span><br><span class="line"><span class="comment">//ifPresent（）：如果Optional实例有值则为其调用consumer，否则不做处理</span></span><br><span class="line">optional.ifPresent((s) -&gt; System.out.println(s.charAt(<span class="number">0</span>)));     <span class="comment">// "b"</span></span><br></pre></td></tr></table></figure>
+<h4 id="检查谓词是否至少匹配一个元素"><a href="#检查谓词是否至少匹配一个元素" class="headerlink" title="检查谓词是否至少匹配一个元素"></a>检查谓词是否至少匹配一个元素</h4><p>anyMatch方法可以判断流中是否有一个元素能匹配给定的谓词，它返回一个boolean，因此是一个终端操作。<br><a href="https://imgchr.com/i/GKHEmd" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHEmd.png" alt="GKHEmd.png"></a>  </p>
+<h4 id="检查谓词是否匹配所有元素"><a href="#检查谓词是否匹配所有元素" class="headerlink" title="检查谓词是否匹配所有元素"></a>检查谓词是否匹配所有元素</h4><p>allMatch和anyMatch类似，但它会查看流中的元素是否都能匹配；和allMatch相对的是noneMatch，可以确保流中没有任何元素匹配。<br><a href="https://imgchr.com/i/GKHV0A" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHV0A.png" alt="GKHV0A.png"></a><br><img src="https://s1.ax1x.com/2020/03/31/GKHZTI.png" alt="GKHZTI.png">  </p>
+<h4 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h4><p>findAny方法将返回当前流中的任意元素，它可以与其他流操作结合使用。<br><a href="https://imgchr.com/i/GKHntP" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHntP.png" alt="GKHntP.png"></a>  </p>
+<h4 id="查找第一个元素"><a href="#查找第一个元素" class="headerlink" title="查找第一个元素"></a>查找第一个元素</h4><p>findFirst方法的工作方式类似于findAny，能找到顺序流的第一个元素。<br><a href="https://imgchr.com/i/GKHuff" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHuff.png" alt="GKHuff.png"></a>  </p>
+<blockquote>
+<p>为什么会同时有findFirst和findAny？答案是并行。如果你不关心返回的元素是哪个就用findAny，它在使用并行流时限制较少。</p>
+</blockquote>
+<h3 id="归约"><a href="#归约" class="headerlink" title="归约"></a>归约</h3><h4 id="元素求和"><a href="#元素求和" class="headerlink" title="元素求和"></a>元素求和</h4><p>reduce接受两个参数，一个是初始值；一个BinaryOperator&lt; T &gt;对象来将两个元素结合起来产生一个新值。<br><a href="https://imgchr.com/i/GKHMp8" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHMp8.png" alt="GKHMp8.png"></a><br>reduce还有一个重载的变体，它不接受初始值但会返回一个Optional对象：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt; Integer &gt; sum = numbers.stream().reduce( (a, b) -&gt; ( a + b) );</span><br></pre></td></tr></table></figure>
+<h4 id="最大值和最小值"><a href="#最大值和最小值" class="headerlink" title="最大值和最小值"></a>最大值和最小值</h4><p><a href="https://imgchr.com/i/GKHQ1S" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHQ1S.png" alt="GKHQ1S.png"></a><br><a href="https://imgchr.com/i/GKHl6g" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHl6g.png" alt="GKHl6g.png"></a>  </p>
+<h2 id="数值流"><a href="#数值流" class="headerlink" title="数值流"></a>数值流</h2><p>我们在前面看到可以使用reduce方法计算流中元素的总和。<br><a href="https://imgchr.com/i/GKH1XQ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKH1XQ.png" alt="GKH1XQ.png"></a><br>这段代码有一个暗含的装箱成本，每个Integer都必须拆箱成一个原始类型，在进行求和。为此，Stream API提供了原始类型流特化来处理数值流。  </p>
 <h3 id="原始类型流特化"><a href="#原始类型流特化" class="headerlink" title="原始类型流特化"></a>原始类型流特化</h3><p>Java8引入了三个原始类型特化流接口：IntStream、DoubleStream和LongStream，分别将流中的元素特化为int、double和long，从而避免了暗含的装箱成本。  </p>
 <ul>
 <li><strong>映射到数值流</strong></li>
 </ul>
-<p>将流转换为特化版本的常用方法是mapToInt、mapToDouble和mapToLong。这些方法和map的工作方式一样，不同的是返回的是一个特化流而不是Stream&lt; T &gt;。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324084101170.png" alt="">  </p>
+<p>将流转换为特化版本的常用方法是mapToInt、mapToDouble和mapToLong。这些方法和map的工作方式一样，不同的是返回的是一个特化流而不是Stream&lt; T &gt;。<br><a href="https://imgchr.com/i/GKH8mj" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKH8mj.png" alt="GKH8mj.png"></a>  </p>
 <ul>
 <li><strong>转换回对象流</strong></li>
 </ul>
-<p>IntStream的map操作必须接受int并返回int，这样的原始流要转换回非特化流可以使用boxed方法。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324084537749.png" alt="">  </p>
+<p>IntStream的map操作必须接受int并返回int，这样的原始流要转换回非特化流可以使用boxed方法。<br><a href="https://imgchr.com/i/GKHJ7n" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHJ7n.png" alt="GKHJ7n.png"></a>  </p>
 <ul>
 <li><strong>默认值OptionalInt</strong></li>
 </ul>
-<p>Optional类是一个可以表示值存在或不存在的容器，可以用Integer、String等参考类型来参数化。对于三种原始流特化，也分别有一个Optional原始类型特化版本：OptionalInt、OptionalDouble和OptionalLong。<br>例如，要找到IntStream中的最大元素，可以调用max方法返回一个OptionalInt：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324085023661.png" alt=""><br>若没有最大值，就可以显式处理OptionalInt去定义一个默认值：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324085109703.png" alt="">  </p>
-<h3 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h3><p>Java8引入了人两个可用于IntStream和LongStream的静态方法，可以指定生成原始流的范围：range和rangeClosed。range不包含结束值，而rangeClosed则包含结束值。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200324085603018.png" alt="">  </p>
-<h2 id="用流收集数据"><a href="#用流收集数据" class="headerlink" title="用流收集数据"></a>用流收集数据</h2><p>前面我们在操作流的时候用到了collect方法来把Stream中所有的元素结合成一个List，collect是一个归约操作。它可以像rduce一样接受各种做法作为参数，将流中的元素累积成一个汇总结果。汇总的方法是把Collector接口的一个实现传递给collect方法的参数。  </p>
-<h3 id="收集器用作高级归约"><a href="#收集器用作高级归约" class="headerlink" title="收集器用作高级归约"></a>收集器用作高级归约</h3><p>对流调用collect方法将对流中的每一个元素触发一个归约操作(由Collector来参数化)，收集器Collector会对元素应用一个转换函数并将结果累积在一个数据结构中，从而产生最终输出。最直接和最常用的收集器是toList静态方法，把流中所有的元素收集到一个List中：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326081239789.png" alt="">  </p>
+<p>Optional类是一个可以表示值存在或不存在的容器，可以用Integer、String等参考类型来参数化。对于三种原始流特化，也分别有一个Optional原始类型特化版本：OptionalInt、OptionalDouble和OptionalLong。<br>例如，要找到IntStream中的最大元素，可以调用max方法返回一个OptionalInt：<br><a href="https://imgchr.com/i/GKHtkq" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHtkq.png" alt="GKHtkq.png"></a><br>若没有最大值，就可以显式处理OptionalInt去定义一个默认值：<br><a href="https://imgchr.com/i/GKHNt0" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHNt0.png" alt="GKHNt0.png"></a>  </p>
+<h3 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h3><p>Java8引入了人两个可用于IntStream和LongStream的静态方法，可以指定生成原始流的范围：range和rangeClosed。range不包含结束值，而rangeClosed则包含结束值。<br><a href="https://imgchr.com/i/GKHUhV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHUhV.png" alt="GKHUhV.png"></a>  </p>
+<h2 id="用流收集数据"><a href="#用流收集数据" class="headerlink" title="用流收集数据"></a>用流收集数据</h2><p>前面我们在操作流的时候用到了collect方法来把Stream中所有的元素结合成一个List，collect是一个归约操作。它可以像reduce一样接受各种做法作为参数，将流中的元素累积成一个汇总结果。汇总的方法是把Collector接口的一个实现传递给collect方法的参数。  </p>
+<h3 id="收集器用作高级归约"><a href="#收集器用作高级归约" class="headerlink" title="收集器用作高级归约"></a>收集器用作高级归约</h3><p>对流调用collect方法将对流中的每一个元素触发一个归约操作(由Collector来参数化)，收集器Collector会对元素应用一个转换函数并将结果累积在一个数据结构中，从而产生最终输出。最直接和最常用的收集器是toList静态方法，把流中所有的元素收集到一个List中：<br><a href="https://imgchr.com/i/GKHdpT" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKHdpT.png" alt="GKHdpT.png"></a>  </p>
 <h3 id="预定义收集器"><a href="#预定义收集器" class="headerlink" title="预定义收集器"></a>预定义收集器</h3><p>预定义收集器，就是那些可以从Collectors类提供的工厂方法创建的收集器。它们主要提供了三大功能：  </p>
 <ul>
 <li>将流元素归约和汇总为一个值</li>
 <li>元素分组，对每个子组进行进一步归约操作</li>
 <li>元素分区，使用谓词作为分组参数</li>
 </ul>
-<p><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326081925245.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082027574.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082048056.png" alt="">  </p>
-<h3 id="归约和汇总"><a href="#归约和汇总" class="headerlink" title="归约和汇总"></a>归约和汇总</h3><h4 id="查找流中的最大值和最小值"><a href="#查找流中的最大值和最小值" class="headerlink" title="查找流中的最大值和最小值"></a>查找流中的最大值和最小值</h4><p>Collectors.maxBy和Collectors.minBy这两个收集器可以计算流中的最大或最小值，其接收一个Comparator参数来比较流中的元素。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082619700.png" alt="">  </p>
-<h4 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h4><p>Collectors.summingInt是Collectors类为汇总提供的工厂方法，它可接受一个把对象映射为求和所需int的函数，并返回一个收集器：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326082853108.png" alt=""><br>Collectors.summingLong和Collectors.summingDouble方法的作用完全一样，可以用于求和字段为long或double的情况。  </p>
-<h4 id="求平均值"><a href="#求平均值" class="headerlink" title="求平均值"></a>求平均值</h4><p>除了求和，还有求平均值的汇总操作：Collectors.averagingInt，对应的averagingLong和averagingDouble也可以计算平均值：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326083146398.png" alt="">  </p>
-<h4 id="Summarizing操作"><a href="#Summarizing操作" class="headerlink" title="Summarizing操作"></a>Summarizing操作</h4><p>当我们想通过一次操作得到多种结果如求最值、平均值等时，可以用summarizingInt工厂方法返回的收集器：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326083617418.png" alt=""><br>收集器会把所有信息收集到INtSummaryStatistics类中，它提供了一个getter方法来访问结果，打印出来会得到以下输出：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326083751352.png" alt=""><br>同样的，summarizingLong和summarizingDouble工厂方法返回的收集器存在LongSummaryStatistics和DoubleSummaryStatistics类，适用于long或double类型数据。  </p>
-<h4 id="连接字符串"><a href="#连接字符串" class="headerlink" title="连接字符串"></a>连接字符串</h4><p>joining工厂方法返回的收集器会把流中每一个对象应用toString方法，得到的所有字符串连接成一个字符串：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326084155121.png" alt=""><br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200326084450359.png" alt="">  </p>
+<p><strong>Collectors类的静态工厂方法</strong>  </p>
+<table>
+<thead>
+<tr>
+<th align="center">工厂方法</th>
+<th align="center">返回类型</th>
+<th align="center">用于</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">toList</td>
+<td align="center">List&lt; T &gt;</td>
+<td align="center">把流中所有元素收集到一个List</td>
+</tr>
+<tr>
+<td align="center">toSet</td>
+<td align="center">Set&lt; T &gt;</td>
+<td align="center">把流中所有元素收集到一个Set，删除重复项</td>
+</tr>
+<tr>
+<td align="center">toCollection</td>
+<td align="center">Collection&lt; T &gt;</td>
+<td align="center">把流中所有元素收集到给定的供应源创建的集合</td>
+</tr>
+<tr>
+<td align="center">counting</td>
+<td align="center">Long</td>
+<td align="center">计算流中元素的个数</td>
+</tr>
+<tr>
+<td align="center">summingInt</td>
+<td align="center">Integer</td>
+<td align="center">对流中元素的一个整数属性求和</td>
+</tr>
+<tr>
+<td align="center">averagingInt</td>
+<td align="center">Double</td>
+<td align="center">计算流中元素Integer属性的平均值</td>
+</tr>
+<tr>
+<td align="center">summarizingInt</td>
+<td align="center">IntSummaryStatistics</td>
+<td align="center">收集关于流中元素Integer属性的统计值，例如最大、最小、总和和平均值</td>
+</tr>
+<tr>
+<td align="center">joining</td>
+<td align="center">String</td>
+<td align="center">连接对流中每个元素调用toString方法所生成的字符串</td>
+</tr>
+<tr>
+<td align="center">maxBy</td>
+<td align="center">Optional&lt; T &gt;</td>
+<td align="center">一个包含流中按给定比较器选出的最大元素的Optional，若流为空则为Optional.empty()</td>
+</tr>
+<tr>
+<td align="center">minBy</td>
+<td align="center">Optional&lt; T &gt;</td>
+<td align="center">类似maxBy，找最小值</td>
+</tr>
+<tr>
+<td align="center">reducing</td>
+<td align="center">归约操作产生的类型</td>
+<td align="center">从一个作为累加器的初始值开始，利用BinaryOperator与流中的元素逐个结合，从而将流归约为单个值</td>
+</tr>
+<tr>
+<td align="center">collectingAndThen</td>
+<td align="center">转换函数返回的类型</td>
+<td align="center">包含另一个收集器，对其结果应用转换函数</td>
+</tr>
+<tr>
+<td align="center">groupingBy</td>
+<td align="center">Map&lt; K, List&lt; T &gt; &gt;</td>
+<td align="center">根据元素的一个属性的值对流中的元素分组，并将属性值作为结果Mao的键</td>
+</tr>
+<tr>
+<td align="center">partitioningBy</td>
+<td align="center">Map&lt; Boolean, List&lt; T &gt; &gt;</td>
+<td align="center">根据对流中每个元素应用谓词的结果来对元素进行分区</td>
+</tr>
+<tr>
+<td align="center"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">List&lt; Dish &gt; dishes = menuStream.collect( toList( ) );  <span class="comment">//toList</span></span><br><span class="line"></span><br><span class="line">Set&lt; Dish &gt; dishes = menuStream.collect( toSet( ) );  <span class="comment">//toSet</span></span><br><span class="line"></span><br><span class="line">Collection&lt; Dish &gt; dishes = menuStream.collect( toCollection( ), ArrayList::<span class="keyword">new</span> );  <span class="comment">//toCollection</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> howManyDishes = menuStream.collect( counting( ) );  <span class="comment">//counting</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> totalCalories = menuStream.collect( summingInt( Dish::getCalories ) );  <span class="comment">//summingInt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> avgCalories = menuStream.collect( averagingInt( Dish::getCalories ) );  <span class="comment">//aversgingInt</span></span><br><span class="line"></span><br><span class="line">IntSummaryStatistics menuStatistics = menuStream.collect( summarizingInt( Dish::getCalories ) );  <span class="comment">//summarizingInt</span></span><br><span class="line"></span><br><span class="line">String shrotMenu = menuStream.map( Dish::getName ).collect( joining(<span class="string">", "</span>) );  <span class="comment">//joining</span></span><br><span class="line"></span><br><span class="line">Optional&lt; Dish &gt; fattest = menuStream.collect( maxBy( comparingInt( Dish::getCalories ) ) );  <span class="comment">//maxBy</span></span><br><span class="line"></span><br><span class="line">Optional&lt; Dish &gt; lightest = menuStream.collect( minBy( comparingInt( Dish::getCalores ) ) );  <span class="comment">//minBy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> totalCaloriess = menuStream.collect( reducing( <span class="number">0</span>, Dish::getCalories, Integer::sum ) );  <span class="comment">//reducing</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> howManyDishes = menuStreasm.collect( collectingAndThen( toList(), List::size ) );  <span class="comment">//collectingAndThen</span></span><br><span class="line"></span><br><span class="line">Map&lt; Dish.Type, List&lt; Dish &gt; &gt; dishesByType = menuStream.collect( groupingBy( Dish::getType ) );  <span class="comment">//groupingBy</span></span><br><span class="line"></span><br><span class="line">Map&lt; Boolean, List&lt; Dish &gt; &gt; vegetarianDishes = menuStream.collect( partitioningBy( Dish::isVegetarian ) );  <span class="comment">//partitioning</span></span><br></pre></td></tr></table></figure></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">### 归约和汇总</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">#### 查找流中的最大值和最小值</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Collectors.maxBy和Collectors.minBy这两个收集器可以计算流中的最大或最小值，其接收一个Comparator参数来比较流中的元素。</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><a href="https://imgchr.com/i/GMAGDA" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMAGDA.png" alt="GMAGDA.png"></a></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h4 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h4><p>Collectors.summingInt是Collectors类为汇总提供的工厂方法，它可接受一个把对象映射为求和所需int的函数，并返回一个收集器：<br><a href="https://imgchr.com/i/GMAM9O" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMAM9O.png" alt="GMAM9O.png"></a><br>Collectors.summingLong和Collectors.summingDouble方法的作用完全一样，可以用于求和字段为long或double的情况。  </p>
+<h4 id="求平均值"><a href="#求平均值" class="headerlink" title="求平均值"></a>求平均值</h4><p>除了求和，还有求平均值的汇总操作：Collectors.averagingInt，对应的averagingLong和averagingDouble也可以计算平均值：<br><a href="https://imgchr.com/i/GMAlge" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMAlge.png" alt="GMAlge.png"></a>  </p>
+<h4 id="Summarizing操作"><a href="#Summarizing操作" class="headerlink" title="Summarizing操作"></a>Summarizing操作</h4><p>当我们想通过一次操作得到多种结果如求最值、平均值等时，可以用summarizingInt工厂方法返回的收集器：<br><a href="https://imgchr.com/i/GMA1jH" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMA1jH.png" alt="GMA1jH.png"></a><br>收集器会把所有信息收集到IntSummaryStatistics类中，它提供了一个getter方法来访问结果，打印出来会得到以下输出：<br><a href="https://imgchr.com/i/GKXok9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GKXok9.png" alt="GKXok9.png"></a><br>同样的，summarizingLong和summarizingDouble工厂方法返回的收集器存在LongSummaryStatistics和DoubleSummaryStatistics类，适用于long或double类型数据。  </p>
+<h4 id="连接字符串"><a href="#连接字符串" class="headerlink" title="连接字符串"></a>连接字符串</h4><p>joining工厂方法返回的收集器会把流中每一个对象应用toString方法，得到的所有字符串连接成一个字符串：<br><a href="https://imgchr.com/i/GMA8ud" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMA8ud.png" alt="GMA8ud.png"></a><br><a href="https://imgchr.com/i/GMAJHI" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMAJHI.png" alt="GMAJHI.png"></a>  </p>
 <blockquote>
 <p>joining在内部使用了StringBuilder方法来吧生成的字符串逐个追加起来。如果提取的元素相应类中重写了toString方法，无需map提取直接映射就能得到结果。  </p>
 </blockquote>
-<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>Collectors.groupingBy工厂方法返回的收集器能对流中的元素进行分组，分组操作的结果是一个Map。把分组函数返回的值作为映射的键，把流中所有具有这个分类值的项目列表作为对应的键值。<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327123450745.png" alt=""><br>但如果要分组的元素类中没有定义方法，也可以自定义Lambda表达式：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327123603811.png" alt="">  </p>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>Collectors.groupingBy工厂方法返回的收集器能对流中的元素进行分组，分组操作的结果是一个Map。把分组函数返回的值作为映射的键，把流中所有具有这个分类值的项目列表作为对应的键值。<br><a href="https://imgchr.com/i/GMAtEt" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMAtEt.png" alt="GMAtEt.png"></a><br>但如果要分组的元素类中没有定义方法，也可以自定义Lambda表达式：<br><a href="https://imgchr.com/i/GMAU4f" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMAU4f.png" alt="GMAU4f.png"></a>  </p>
 <blockquote>
 <p>注：该方法为单参数groupingBy(f)(其中f是分类函数)，实际上是groupingBy(f,toList())的简便写法。</p>
 </blockquote>
-<h3 id="多级分组"><a href="#多级分组" class="headerlink" title="多级分组"></a>多级分组</h3><p>Collectors.groupingBy方法有一个双参数版本，除了普通的分类函数之外，还可以接受Collector类型的第二个参数。把一个内层groupingBy传递给外层groupingBy，即可进行二级分组：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327123906316.png" alt="">  </p>
-<h3 id="按子组收集数据"><a href="#按子组收集数据" class="headerlink" title="按子组收集数据"></a>按子组收集数据</h3><p>除了传递一个groupingBy收集器，也可以传递其他收集器给一个groupingBy收集器：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327124356439.png" alt="">  </p>
-<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><p>分区是分组的特殊情况：由一个谓词(返回一个布尔值的函数)作为分类函数，称为分区函数。这意味着得到的分组Map键类型是Boolean，于是最多可以分为两组：<br><img src="/Java8%E7%89%B9%E6%80%A7%E4%B9%8BStream%E6%B5%81/20200327124915147.png" alt="">  </p>
+<h3 id="多级分组"><a href="#多级分组" class="headerlink" title="多级分组"></a>多级分组</h3><p>Collectors.groupingBy方法有一个双参数版本，除了普通的分类函数之外，还可以接受Collector类型的第二个参数。把一个内层groupingBy传递给外层groupingBy，即可进行二级分组：<br><a href="https://imgchr.com/i/GMAw8S" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMAw8S.png" alt="GMAw8S.png"></a><br>分组结果如下：  </p>
+<p><a href="https://imgchr.com/i/GMABvQ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMABvQ.png" alt="GMABvQ.png"></a>  </p>
+<h3 id="按子组收集数据"><a href="#按子组收集数据" class="headerlink" title="按子组收集数据"></a>按子组收集数据</h3><p>除了传递一个groupingBy收集器，也可以传递其他收集器给一个groupingBy收集器：<br><a href="https://imgchr.com/i/GMAsDs" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMAsDs.png" alt="GMAsDs.png"></a>  </p>
+<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><p>分区是分组的特殊情况：由一个谓词(返回一个布尔值的函数)作为分类函数，称为分区函数。这意味着得到的分组Map键类型是Boolean，于是最多可以分为两组：<br><a href="https://imgchr.com/i/GMAcEq" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMAcEq.png" alt="GMAcEq.png"></a><br>分区方法有一个重载版本，可以像下面这样传递第二个收集器：  </p>
+<p><a href="https://imgchr.com/i/GMA25V" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/31/GMA25V.png" alt="GMA25V.png"></a></p>
 
       
 
